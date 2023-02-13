@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { get, controller, use, post, bodyValidator } from './decorators'
+import { get, controller, use } from './decorators'
 import { requireAuth } from '../middlewares'
 
 @controller('')

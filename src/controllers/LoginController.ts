@@ -1,11 +1,9 @@
 import { Request, Response } from 'express'
 import { get, controller, use, post, bodyValidator } from './decorators'
-import { logger } from '../middlewares'
 
 @controller('/auth')
 class LoginController {
   @get('/login')
-  @use(logger)
   getLogin(req: Request, res: Response) {
     res.render('login')
   }

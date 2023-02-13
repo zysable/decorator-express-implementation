@@ -1,6 +1,6 @@
 import './controllers/LoginController'
 import './controllers/RootController'
-import {Server} from './App'
+import { Server } from './App'
 
 const app = Server.getInstance()
 

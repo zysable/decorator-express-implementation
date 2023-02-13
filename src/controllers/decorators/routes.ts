@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import {Methods} from './Methods'
+import { Methods } from './Methods'
 import { MetadataKeys } from './MetadataKeys'
 import { RequestHandler } from 'express'
 

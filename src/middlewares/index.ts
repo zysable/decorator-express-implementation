@@ -2,12 +2,12 @@ import { NextFunction, Response, Request } from 'express'
 import onHeaders from 'on-headers'
 
 export function logger(req: Request, res: Response, next: NextFunction) {
-  const startAt = process.hrtime()
-  onHeaders(res, () => {
-    const diff = process.hrtime(startAt)
-    const time = (diff[0] * 1e3 + diff[1] * 1e-6).toFixed(3)
-    console.log(`${req.method} ${req.path} -- ${time}ms -- From: ${req.ip}`)
+  const startAt = process.hrtime.bigint()
+  onHeaders(res, function () {
+    const diff = Number(process.hrtime.bigint() - startAt)
+    const time = (diff * 1e-6).toFixed(3)
     res.append('X-Response-Time', `${time}ms`)
+    console.log(`${this.statusCode} - ${req.method} ${req.path} - From: ${req.ip} - ${time}ms`)
   })
   next()
 }
